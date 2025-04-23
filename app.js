@@ -78,7 +78,7 @@ function verificarChute() {
 }
 
 function randomNumber() {
-    return parseInt(Math.random() * 100 + 1);
+    return parseInt(Math.random() * 1000 + 1);
 }
 
 function clearSpace() {
