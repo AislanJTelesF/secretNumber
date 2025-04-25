@@ -94,15 +94,17 @@
 //     document.getElementById('reiniciar').setAttribute('disabled', true);
 // }
 
-// Etapa 4
+// Etapa 4 e 5
 
 let arrayOfRandomNumbers = [];
+let maxNumber = 50;
 let secretNumber = randomNumber();
 let guesses = 1;
 
 function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
+    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});
 }
 
 function showInitialMessage() {
@@ -132,7 +134,12 @@ function verificarChute() {
 }
 
 function randomNumber() {
-    let chooseNumber = parseInt(Math.random() * 4 + 1);
+    let chooseNumber = parseInt(Math.random() * maxNumber + 1);
+    let quantityElementsArray = arrayOfRandomNumbers.length;
+    if (quantityElementsArray == maxNumber) {
+        arrayOfRandomNumbers = [];
+    }
+
     if (arrayOfRandomNumbers.includes(chooseNumber)) {
         return randomNumber();
     } else {
